@@ -1,0 +1,25 @@
+.toggle__container {
+    @apply flex items-center cursor-pointer;
+}
+
+
+.toggle__container > div {
+    position: relative;
+}
+
+.toggle__input-container {
+    @apply block bg-gray-800 shadow-sm w-14 h-8 rounded-full;
+}
+
+.toggle__input-dot {
+    @apply dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition flex items-center justify-center text-gray-800;
+}
+
+.toggle__text {
+    @apply ml-3 text-gray-800 font-medium flex items-center gap-2;
+}
+
+input:checked ~ .dot {
+    transform: translateX(100%);
+    @apply bg-white;
+}

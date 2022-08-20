@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Card, Toggle } from "./components";
+import LayoutContextProvider from "./context/layoutContext";
+import { MainContext } from "./context/mainContext";
+const App = () => {
+  const cardData = {
+    name: "Dzaky Badawi",
+    avatar: "https://pbs.twimg.com/profile_images/1548892350029516801/zdBqralu_400x400.jpg",
+    job: "Frontend Developer",
+  };
 
-function App() {
+  const mainContextValue = {
+    cardData,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LayoutContextProvider>
+      <div className="min-h-screen flex flex-col justify-center gap-10">
+        <div className="mx-auto">
+          <Toggle />
+        </div>
+        <section className="flex items-center justify-center">
+          <MainContext.Provider value={mainContextValue}>
+            <Card />
+          </MainContext.Provider>
+        </section>
+      </div>
+    </LayoutContextProvider>
   );
-}
+};
 
 export default App;
