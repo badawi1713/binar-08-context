@@ -1,26 +1,23 @@
-import React, { Component, createContext } from "react";
+import React, { createContext, useState } from "react";
 export const LayoutContext = createContext();
 
-class LayoutContextProvider extends Component {
-  state = {
+const LayoutContextProvider = (props) => {
+  const [state, setState] = useState({
     nightmode: false,
+  });
+
+  const handleToggle = () => {
+    setState((prevState) => ({
+      ...prevState,
+      nightmode: !prevState.nightmode,
+    }));
   };
 
-  handleToggle = () => {
-    this.setState({
-      nightmode: !this.state.nightmode,
-    });
-  };
-
-  render() {
-    return (
-      <LayoutContext.Provider
-        value={{ ...this.state, handleToggle: this.handleToggle }}
-      >
-        {this.props.children}
-      </LayoutContext.Provider>
-    );
-  }
-}
+  return (
+    <LayoutContext.Provider value={{ ...state, handleToggle: handleToggle }}>
+      {props.children}
+    </LayoutContext.Provider>
+  );
+};
 
 export default LayoutContextProvider;

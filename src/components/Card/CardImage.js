@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { MainContext } from "../../context/mainContext";
+import { MainContextClass } from "../../context/mainContextClass";
 
 const CardImage = () => {
-  const data = useContext(MainContext);
+  const data = useContext(MainContextClass);
   const { cardData } = data;
   const { avatar } = cardData;
 

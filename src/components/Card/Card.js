@@ -14,9 +14,9 @@ const Card = () => {
         <CardName />
         <div className="card__actions">
           <button className="card__button card__button--primary">
-            Add friend
+            Twitter
           </button>
-          <button className="card__button">Message</button>
+          <button className="card__button">Github</button>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { LayoutContext } from "../../context/layoutContext";
-import { MainContext } from "../../context/mainContext";
+import { MainContextClass } from "../../context/mainContextClass";
 
 const CardName = () => {
-  const data = useContext(MainContext);
+  const data = useContext(MainContextClass);
   const layoutData = useContext(LayoutContext);
 
   const { cardData } = data;
